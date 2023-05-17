@@ -4,6 +4,11 @@ import Todo from "./Todo";
 
 export default function ListTodo() {
   let listTodos = useSelector((state) => state.todos.listTask);
+  let string = useSelector((state) => state.todos.search);
+  let listSearch = listTodos.filter((todo) => todo.task.includes(string));
+  console.log("====================================");
+  console.log("render");
+  console.log("====================================");
   return (
     <div>
       <h1>Danh sách công việc</h1>
@@ -21,7 +26,7 @@ export default function ListTodo() {
           </tr>
         </thead>
         <tbody>
-          {listTodos.map((todo, index) => (
+          {listSearch.map((todo, index) => (
             <Todo key={todo.id} todo={todo} stt={index + 1} />
           ))}
         </tbody>

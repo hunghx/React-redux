@@ -1,17 +1,15 @@
-import logo from "./logo.svg";
-import "./App.css";
-import Display from "./component/Display";
-import GroupBtn from "./component/GroupBtn";
-import ListTodo from "./component/ListTodo";
-import Form from "./component/Form";
+import Cart from "./component/Cart";
+import ListProduct from "./component/ListProduct";
+import Title from "./component/Title";
 
 function App() {
   return (
-    <div className="App">
-      {/* <Display />
-      <GroupBtn /> */}
-      <Form />
-      <ListTodo />
+    <div className="container">
+      <Title />
+      <div className="row">
+        <ListProduct />
+        <Cart />
+      </div>
     </div>
   );
 }

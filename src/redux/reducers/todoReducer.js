@@ -5,6 +5,7 @@ const initState = {
     { id: 3, task: "đi chơi" },
   ],
   editTask: { id: "", task: "" },
+  search: "",
 };
 const todoReducer = (state = initState, action) => {
   switch (action.type) {
@@ -26,6 +27,19 @@ const todoReducer = (state = initState, action) => {
       return state;
     case "EDIT_TASK":
       state = { ...state, editTask: action.payload };
+      return state;
+    case "UPDATE_TASK":
+      let updateList = state.listTask.map((task) => {
+        if (task.id == action.payload.id) {
+          return action.payload;
+        } else {
+          return task;
+        }
+      });
+      state = { ...state, listTask: [...updateList] };
+      return state;
+    case "SEARCH_TASK":
+      state = { ...state, search: action.payload };
       return state;
     default:
       return state;
